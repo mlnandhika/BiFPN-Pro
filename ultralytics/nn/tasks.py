@@ -6,6 +6,7 @@ import re
 import types
 from copy import deepcopy
 from pathlib import Path
+from ultralytics.nn.modules.bifpn import swish, Bi_FPN, Concat_BiFPN
 
 import torch
 import torch.nn as nn
@@ -1668,8 +1669,11 @@ def parse_model(d, ch, verbose=True):
             c2 = args[1] if args[3] else args[1] * 4
         elif m is torch.nn.BatchNorm2d:
             args = [ch[f]]
-        elif m is Concat:
+        elif m is (Concat, Concat_BiFPN):
             c2 = sum(ch[x] for x in f)
+        elif m in {Bi_FPN}:
+            length = len([ch[x] for x in f])
+            args = [length]
         elif m in frozenset(
             {
                 Detect,
