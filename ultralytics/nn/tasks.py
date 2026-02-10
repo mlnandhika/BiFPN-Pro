@@ -1669,7 +1669,7 @@ def parse_model(d, ch, verbose=True):
             c2 = args[1] if args[3] else args[1] * 4
         elif m is torch.nn.BatchNorm2d:
             args = [ch[f]]
-        elif m is (Concat, Concat_BiFPN):
+        elif m in {Concat, Concat_BiFPN}:
             c2 = sum(ch[x] for x in f)
         elif m in {Bi_FPN}:
             length = len([ch[x] for x in f])
