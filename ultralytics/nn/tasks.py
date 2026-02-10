@@ -6,7 +6,6 @@ import re
 import types
 from copy import deepcopy
 from pathlib import Path
-from ultralytics.nn.modules.bifpn import swish, Bi_FPN, Concat_BiFPN
 
 import torch
 import torch.nn as nn
@@ -74,6 +73,7 @@ from ultralytics.nn.modules import (
     YOLOESegment26,
     v10Detect,
 )
+from ultralytics.nn.modules.bifpn import Bi_FPN, Concat_BiFPN
 from ultralytics.utils import DEFAULT_CFG_DICT, LOGGER, YAML, colorstr, emojis
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
 from ultralytics.utils.loss import (
