@@ -17,8 +17,7 @@ Examples:
     >>> subprocess.run(f"onnxslim {f} {f} && open {f}", shell=True, check=True)  # pip install onnxslim
 """
 
-from .bifpn import swish, Bi_FPN, Concat_BiFPN
-
+from .bifpn import Bi_FPN, Concat_BiFPN, swish
 from .block import (
     C1,
     C2,
@@ -131,6 +130,7 @@ __all__ = (
     "ADown",
     "Attention",
     "BNContrastiveHead",
+    "Bi_FPN",
     "Bottleneck",
     "BottleneckCSP",
     "C2f",
@@ -145,6 +145,7 @@ __all__ = (
     "ChannelAttention",
     "Classify",
     "Concat",
+    "Concat_BiFPN",
     "ContrastiveHead",
     "Conv",
     "Conv2",
@@ -188,8 +189,6 @@ __all__ = (
     "YOLOEDetect",
     "YOLOESegment",
     "YOLOESegment26",
-    "v10Detect",
     "swish",
-    "Bi_FPN",
-    "Concat_BiFPN"
+    "v10Detect",
 )
